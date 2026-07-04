@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>AI Health Tips</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="main-container">
+
+    <!-- Sidebar -->
+
+    <div class="sidebar">
+
+        <h2>🏥 HealthMate</h2>
+
+        <a href="/dashboard"><i class="fas fa-home"></i> Dashboard</a>
+        <a href="/profile"><i class="fas fa-user"></i> My Profile</a>
+        <a href="/add_health"><i class="fas fa-heart"></i> Add Health Record</a>
+        <a href="/history"><i class="fas fa-history"></i> Health History</a>
+        <a href="/bmi"><i class="fas fa-calculator"></i> BMI Calculator</a>
+        <a href="/upload_skin"><i class="fas fa-stethoscope"></i> Skin Detection</a>
+        <a href="/medicine"><i class="fas fa-pills"></i> Medicine Reminder</a>
+        <a href="/appointment"><i class="fas fa-calendar-check"></i> Appointment Booking</a>
+        <a href="/health_tips"><i class="fas fa-robot"></i> AI Health Tips</a>
+        <a href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+
+    </div>
+
+    <!-- Main Content -->
+
+    <div class="content">
+
+        <h1><i class="fas fa-robot"></i> AI Health Tips</h1>
+
+        <p style="color:#666;font-size:17px;">
+            Personalized recommendations based on your latest health record.
+        </p>
+
+        <br>
+
+        <!-- Health Summary -->
+
+        <div class="dashboard">
+
+            <div class="card">
+                <h3>❤️ Heart Rate</h3>
+                <h1>{{ heart_rate }}</h1>
+            </div>
+
+            <div class="card">
+                <h3>🍬 Blood Sugar</h3>
+                <h1>{{ blood_sugar }}</h1>
+            </div>
+
+            <div class="card">
+                <h3>⚖️ BMI</h3>
+                <h1>{{ bmi }}</h1>
+            </div>
+
+        </div>
+
+        <br><br>
+
+        <h2><i class="fas fa-lightbulb"></i> AI Recommendations</h2>
+
+        {% for tip in tips %}
+
+        <div class="tip-card">
+
+            <i class="fas fa-check-circle"
+               style="color:#1565c0;font-size:20px;"></i>
+
+            {{ tip }}
+
+        </div>
+
+        {% endfor %}
+
+        <br>
+
+        <div class="card">
+
+            <h3>💡 Healthy Habits</h3>
+
+            <ul style="text-align:left;line-height:2;font-size:17px;">
+
+                <li>Drink 2–3 liters of water every day.</li>
+
+                <li>Exercise for at least 30 minutes.</li>
+
+                <li>Sleep for 7–8 hours daily.</li>
+
+                <li>Eat fruits and vegetables regularly.</li>
+
+                <li>Monitor your health records frequently.</li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

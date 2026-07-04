@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Add Health Record</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="main-container">
+
+    <!-- Sidebar -->
+
+    <div class="sidebar">
+
+        <h2>🏥 HealthMate</h2>
+
+        <a href="/dashboard"><i class="fas fa-home"></i> Dashboard</a>
+        <a href="/profile"><i class="fas fa-user"></i> My Profile</a>
+        <a href="/add_health"><i class="fas fa-heart"></i> Add Health Record</a>
+        <a href="/history"><i class="fas fa-history"></i> Health History</a>
+        <a href="/bmi"><i class="fas fa-calculator"></i> BMI Calculator</a>
+        <a href="/upload_skin"><i class="fas fa-stethoscope"></i> Skin Detection</a>
+        <a href="/medicine"><i class="fas fa-pills"></i> Medicine Reminder</a>
+        <a href="/appointment"><i class="fas fa-calendar-check"></i> Appointment Booking</a>
+        <a href="/health_tips"><i class="fas fa-robot"></i> AI Health Tips</a>
+        <a href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+
+    </div>
+
+    <!-- Content -->
+
+    <div class="content">
+
+        <h1><i class="fas fa-heartbeat"></i> Add Health Record</h1>
+
+        <p style="color:#666;font-size:17px;">
+            Enter your latest health details below.
+        </p>
+
+        <br>
+
+        <div class="container">
+
+            <form method="POST">
+
+                <label>
+                    <i class="fas fa-heart"></i>
+                    Heart Rate (bpm)
+                </label>
+
+                <input
+                    type="number"
+                    name="heart_rate"
+                    placeholder="Example: 72"
+                    required>
+
+                <label>
+                    <i class="fas fa-tint"></i>
+                    Blood Pressure
+                </label>
+
+                <input
+                    type="text"
+                    name="blood_pressure"
+                    placeholder="Example: 120/80"
+                    required>
+
+                <label>
+                    <i class="fas fa-candy-cane"></i>
+                    Blood Sugar
+                </label>
+
+                <input
+                    type="number"
+                    name="blood_sugar"
+                    placeholder="Example: 95"
+                    required>
+
+                <label>
+                    <i class="fas fa-weight"></i>
+                    Weight (kg)
+                </label>
+
+                <input
+                    type="number"
+                    step="0.1"
+                    name="weight"
+                    placeholder="Example: 65"
+                    required>
+
+                <label>
+                    <i class="fas fa-ruler-vertical"></i>
+                    Height (cm)
+                </label>
+
+                <input
+type="number"
+step="0.1"
+name="height"
+placeholder="Height (cm)"
+required>
+
+                <br>
+
+                <button type="submit">
+                    <i class="fas fa-save"></i>
+                    Save Health Record
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>HealthMate Dashboard</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="main-container">
+
+    <!-- Sidebar -->
+
+    <div class="sidebar">
+
+        <h2>🏥 HealthMate</h2>
+
+        <a href="/dashboard">
+            <i class="fas fa-home"></i> Dashboard
+        </a>
+
+        <a href="/profile">
+            <i class="fas fa-user"></i> My Profile
+        </a>
+
+        <a href="/add_health">
+            <i class="fas fa-heart"></i> Add Health Record
+        </a>
+
+        <a href="/history">
+            <i class="fas fa-history"></i> Health History
+        </a>
+
+        <a href="/bmi">
+            <i class="fas fa-calculator"></i> BMI Calculator
+        </a>
+
+        <a href="/upload_skin">
+            <i class="fas fa-stethoscope"></i> Skin Detection
+        </a>
+
+        <a href="/medicine">
+            <i class="fas fa-pills"></i> Medicine Reminder
+        </a>
+
+        <a href="/appointment">
+            <i class="fas fa-calendar-check"></i> Appointment Booking
+        </a>
+
+        <a href="/health_tips">
+            <i class="fas fa-robot"></i> AI Health Tips
+        </a>
+
+        <a href="/logout">
+            <i class="fas fa-sign-out-alt"></i> Logout
+        </a>
+
+    </div>
+
+    <!-- Content -->
+
+    <div class="content">
+
+        <h1>🏥 HealthMate Dashboard</h1>
+
+        <h2>Welcome, {{ username }} 👋</h2>
+
+        <br>
+
+        <!-- Dashboard Cards -->
+
+        <div class="dashboard">
+
+            <div class="card">
+                <h3>Total Records</h3>
+                <h1>{{ total_records }}</h1>
+            </div>
+
+            <div class="card">
+                <h3>Latest BMI</h3>
+                <h1>{{ bmi }}</h1>
+            </div>
+
+            <div class="card">
+                <h3>❤️ Heart Rate</h3>
+                <h1>{{ heart_rate }}</h1>
+            </div>
+
+            <div class="card">
+                <h3>🩸 Blood Pressure</h3>
+                <h1>{{ blood_pressure }}</h1>
+            </div>
+
+            <div class="card">
+                <h3>🍬 Blood Sugar</h3>
+                <h1>{{ blood_sugar }}</h1>
+            </div>
+
+            <div class="card">
+                <h3>Prediction</h3>
+                <h1>{{ prediction }}</h1>
+            </div>
+
+        </div>
+
+        <br><br>
+
+        <!-- Notifications -->
+
+        <hr>
+
+        <h2>🔔 Notifications</h2>
+
+        {% for note in notifications %}
+
+        <div style="
+            background:#FFF8DC;
+            padding:15px;
+            margin-bottom:15px;
+            border-left:6px solid orange;
+            border-radius:10px;
+            font-size:17px;
+        ">
+            {{ note }}
+        </div>
+
+        {% endfor %}
+
+        <br>
+
+        <!-- Analytics -->
+
+        <hr>
+
+        <h2>📈 Health Analytics</h2>
+
+        <br>
+
+        <canvas id="heartChart"></canvas>
+
+        <br><br>
+
+        <canvas id="sugarChart"></canvas>
+
+        <br><br>
+
+        <canvas id="bmiChart"></canvas>
+
+    </div>
+
+</div>
+
+<script>
+
+// Labels
+
+const labels = [];
+
+for (let i = 0; i < {{ heart_data|length }}; i++) {
+    labels.push("Record " + (i + 1));
+}
+
+// Heart Rate Chart
+
+new Chart(document.getElementById("heartChart"), {
+
+    type: "line",
+
+    data: {
+
+        labels: labels,
+
+        datasets: [{
+
+            label: "Heart Rate",
+
+            data: {{ heart_data|tojson }},
+
+            borderColor: "red",
+
+            borderWidth: 3,
+
+            fill: false,
+
+            tension: 0.4
+
+        }]
+
+    }
+
+});
+
+// Blood Sugar Chart
+
+new Chart(document.getElementById("sugarChart"), {
+
+    type: "line",
+
+    data: {
+
+        labels: labels,
+
+        datasets: [{
+
+            label: "Blood Sugar",
+
+            data: {{ sugar_data|tojson }},
+
+            borderColor: "blue",
+
+            borderWidth: 3,
+
+            fill: false,
+
+            tension: 0.4
+
+        }]
+
+    }
+
+});
+
+// BMI Chart
+
+new Chart(document.getElementById("bmiChart"), {
+
+    type: "line",
+
+    data: {
+
+        labels: labels,
+
+        datasets: [{
+
+            label: "BMI",
+
+            data: {{ bmi_data|tojson }},
+
+            borderColor: "green",
+
+            borderWidth: 3,
+
+            fill: false,
+
+            tension: 0.4
+
+        }]
+
+    }
+
+});
+
+</script>
+
+</body>
+
+</html>

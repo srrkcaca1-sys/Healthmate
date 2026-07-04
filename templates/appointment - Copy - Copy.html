@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Appointment Booking</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="main-container">
+
+    <!-- Sidebar -->
+
+    <div class="sidebar">
+
+        <h2>🏥 HealthMate</h2>
+
+        <a href="/dashboard"><i class="fas fa-home"></i> Dashboard</a>
+        <a href="/profile"><i class="fas fa-user"></i> My Profile</a>
+        <a href="/add_health"><i class="fas fa-heart"></i> Add Health Record</a>
+        <a href="/history"><i class="fas fa-history"></i> Health History</a>
+        <a href="/bmi"><i class="fas fa-calculator"></i> BMI Calculator</a>
+        <a href="/upload_skin"><i class="fas fa-stethoscope"></i> Skin Detection</a>
+        <a href="/medicine"><i class="fas fa-pills"></i> Medicine Reminder</a>
+        <a href="/appointment"><i class="fas fa-calendar-check"></i> Appointment Booking</a>
+        <a href="/health_tips"><i class="fas fa-robot"></i> AI Health Tips</a>
+        <a href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+
+    </div>
+
+    <!-- Main Content -->
+
+    <div class="content">
+
+        <h1><i class="fas fa-calendar-check"></i> Appointment Booking</h1>
+
+        <p style="color:#666;font-size:17px;">
+            Schedule your medical appointments quickly and easily.
+        </p>
+
+        <br>
+
+        <div class="container">
+
+            <form method="POST">
+
+                <label>
+                    <i class="fas fa-user-md"></i>
+                    Doctor Name
+                </label>
+
+                <input
+                    type="text"
+                    name="doctor_name"
+                    placeholder="Enter Doctor Name"
+                    required>
+
+                <label>
+                    <i class="fas fa-hospital"></i>
+                    Hospital Name
+                </label>
+
+                <input
+                    type="text"
+                    name="hospital_name"
+                    placeholder="Enter Hospital Name"
+                    required>
+
+                <label>
+                    <i class="fas fa-calendar"></i>
+                    Appointment Date
+                </label>
+
+                <input
+                    type="date"
+                    name="appointment_date"
+                    required>
+
+                <label>
+                    <i class="fas fa-clock"></i>
+                    Appointment Time
+                </label>
+
+                <input
+                    type="time"
+                    name="appointment_time"
+                    required>
+
+                <label>
+                    <i class="fas fa-notes-medical"></i>
+                    Reason
+                </label>
+
+                <textarea
+                    name="reason"
+                    placeholder="Reason for appointment"
+                    required></textarea>
+
+                <br>
+
+                <button type="submit">
+
+                    <i class="fas fa-calendar-plus"></i>
+
+                    Book Appointment
+
+                </button>
+
+            </form>
+
+        </div>
+
+        <br><br>
+
+        <table>
+
+            <thead>
+
+            <tr>
+
+                <th>Doctor</th>
+
+                <th>Hospital</th>
+
+                <th>Date</th>
+
+                <th>Time</th>
+
+                <th>Status</th>
+
+                <th>Action</th>
+
+            </tr>
+
+            </thead>
+
+            <tbody>
+
+            {% for appointment in appointments %}
+
+            <tr>
+
+                <td>
+                    👨‍⚕️ {{ appointment[2] }}
+                </td>
+
+                <td>
+                    🏥 {{ appointment[3] }}
+                </td>
+
+                <td>
+                    📅 {{ appointment[4] }}
+                </td>
+
+                <td>
+                    ⏰ {{ appointment[5] }}
+                </td>
+
+                <td>
+
+                    {% if appointment[7] == "Booked" %}
+
+                        <span class="badge badge-success">
+                            Booked
+                        </span>
+
+                    {% else %}
+
+                        <span class="badge badge-danger">
+                            Cancelled
+                        </span>
+
+                    {% endif %}
+
+                </td>
+
+                <td>
+
+                    <a href="/cancel_appointment/{{ appointment[0] }}"
+                       onclick="return confirm('Cancel this appointment?')">
+
+                        <button style="background:#e53935;">
+
+                            Cancel
+
+                        </button>
+
+                    </a>
+
+                </td>
+
+            </tr>
+
+            {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

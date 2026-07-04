@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>My Profile</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="main-container">
+
+    <!-- Sidebar -->
+
+    <div class="sidebar">
+
+        <h2>🏥 HealthMate</h2>
+
+        <a href="/dashboard"><i class="fas fa-home"></i> Dashboard</a>
+        <a href="/profile"><i class="fas fa-user"></i> My Profile</a>
+        <a href="/add_health"><i class="fas fa-heart"></i> Add Health Record</a>
+        <a href="/history"><i class="fas fa-history"></i> Health History</a>
+        <a href="/bmi"><i class="fas fa-calculator"></i> BMI Calculator</a>
+        <a href="/upload_skin"><i class="fas fa-stethoscope"></i> Skin Detection</a>
+        <a href="/medicine"><i class="fas fa-pills"></i> Medicine Reminder</a>
+        <a href="/appointment"><i class="fas fa-calendar-check"></i> Appointment Booking</a>
+        <a href="/health_tips"><i class="fas fa-robot"></i> AI Health Tips</a>
+        <a href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+
+    </div>
+
+    <!-- Content -->
+
+    <div class="content">
+
+        <h1><i class="fas fa-user-circle"></i> My Profile</h1>
+
+        <br>
+
+        <div class="profile-card">
+
+            <i class="fas fa-user-circle"
+               style="font-size:100px;color:#1565c0;"></i>
+
+            <h2 style="margin-top:15px;">
+                {{ user[1] }}
+            </h2>
+
+            <p>{{ user[2] }}</p>
+
+        </div>
+
+        <br>
+
+        <table>
+
+            <tr>
+                <th>Field</th>
+                <th>Details</th>
+            </tr>
+
+            <tr>
+                <td>Name</td>
+                <td>{{ user[1] }}</td>
+            </tr>
+
+            <tr>
+                <td>Email</td>
+                <td>{{ user[2] }}</td>
+            </tr>
+
+            <tr>
+    <td>Phone</td>
+    <td>{{ profile[2] if profile else "-" }}</td>
+</tr>
+
+<tr>
+    <td>Age</td>
+    <td>{{ profile[3] if profile else "-" }}</td>
+</tr>
+
+<tr>
+    <td>Gender</td>
+    <td>{{ profile[4] if profile else "-" }}</td>
+</tr>
+
+<tr>
+    <td>Address</td>
+    <td>{{ profile[5] if profile else "-" }}</td>
+</tr>
+
+<tr>
+    <td>Blood Group</td>
+    <td>{{ profile[6] if profile else "-" }}</td>
+</tr>
+
+        </table>
+
+        <br><br>
+
+        <a href="/edit_profile">
+            <button>
+                <i class="fas fa-edit"></i>
+                Edit Profile
+            </button>
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

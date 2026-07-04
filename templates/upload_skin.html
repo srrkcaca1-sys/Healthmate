@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Skin Disease Detection</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="main-container">
+
+    <!-- Sidebar -->
+
+    <div class="sidebar">
+
+        <h2>🏥 HealthMate</h2>
+
+        <a href="/dashboard"><i class="fas fa-home"></i> Dashboard</a>
+        <a href="/profile"><i class="fas fa-user"></i> My Profile</a>
+        <a href="/add_health"><i class="fas fa-heart"></i> Add Health Record</a>
+        <a href="/history"><i class="fas fa-history"></i> Health History</a>
+        <a href="/bmi"><i class="fas fa-calculator"></i> BMI Calculator</a>
+        <a href="/upload_skin"><i class="fas fa-stethoscope"></i> Skin Detection</a>
+        <a href="/medicine"><i class="fas fa-pills"></i> Medicine Reminder</a>
+        <a href="/appointment"><i class="fas fa-calendar-check"></i> Appointment Booking</a>
+        <a href="/health_tips"><i class="fas fa-robot"></i> AI Health Tips</a>
+        <a href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+
+    </div>
+
+    <!-- Main Content -->
+
+    <div class="content">
+
+        <h1>
+            <i class="fas fa-stethoscope"></i>
+            Skin Disease Detection
+        </h1>
+
+        <p style="color:#666;font-size:17px;">
+            Upload a clear image of the affected skin area for analysis.
+        </p>
+
+        <br>
+
+        <div class="container">
+
+            <form method="POST"
+                  enctype="multipart/form-data">
+
+                <label>
+
+                    <i class="fas fa-image"></i>
+
+                    Choose Skin Image
+
+                </label>
+
+                <input
+                    type="file"
+                    name="image"
+                    accept="image/*"
+                    required>
+
+                <br><br>
+
+                <button type="submit">
+
+                    <i class="fas fa-upload"></i>
+
+                    Upload & Continue
+
+                </button>
+
+            </form>
+
+        </div>
+
+        <br><br>
+
+        <div class="card">
+
+            <h2>
+                <i class="fas fa-circle-info"></i>
+                Instructions
+            </h2>
+
+            <br>
+
+            <ul style="text-align:left;line-height:2;font-size:17px;">
+
+                <li>📷 Upload a clear image.</li>
+
+                <li>💡 Use good lighting conditions.</li>
+
+                <li>📍 Focus only on the affected area.</li>
+
+                <li>🚫 Avoid blurry images.</li>
+
+                <li>📱 JPG, JPEG and PNG images are supported.</li>
+
+            </ul>
+
+        </div>
+
+        <br><br>
+
+        <div class="card">
+
+            <h2>
+
+                <i class="fas fa-shield-heart"></i>
+
+                Disclaimer
+
+            </h2>
+
+            <br>
+
+            <p style="font-size:17px;line-height:1.8;">
+
+                This feature is intended for educational purposes and provides
+                preliminary guidance only. It is not a substitute for a
+                professional medical diagnosis. Please consult a qualified
+                healthcare provider for any medical concerns.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

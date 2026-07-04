@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>BMI Calculator</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="main-container">
+
+    <!-- Sidebar -->
+
+    <div class="sidebar">
+
+        <h2>🏥 HealthMate</h2>
+
+        <a href="/dashboard"><i class="fas fa-home"></i> Dashboard</a>
+        <a href="/profile"><i class="fas fa-user"></i> My Profile</a>
+        <a href="/add_health"><i class="fas fa-heart"></i> Add Health Record</a>
+        <a href="/history"><i class="fas fa-history"></i> Health History</a>
+        <a href="/bmi"><i class="fas fa-calculator"></i> BMI Calculator</a>
+        <a href="/upload_skin"><i class="fas fa-stethoscope"></i> Skin Detection</a>
+        <a href="/medicine"><i class="fas fa-pills"></i> Medicine Reminder</a>
+        <a href="/appointment"><i class="fas fa-calendar-check"></i> Appointment Booking</a>
+        <a href="/health_tips"><i class="fas fa-robot"></i> AI Health Tips</a>
+        <a href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+
+    </div>
+
+    <!-- Main Content -->
+
+    <div class="content">
+
+        <h1>⚖️ BMI Calculator</h1>
+
+        <p style="font-size:18px;color:#666;">
+            Body Mass Index (BMI) indicates whether your weight is healthy for your height.
+        </p>
+
+        <br>
+
+        <div class="card">
+
+            <h2>Your BMI</h2>
+
+            <h1 style="font-size:60px;color:#1565c0;">
+                {{ bmi }}
+            </h1>
+
+            <br>
+
+            {% if bmi < 18.5 %}
+
+                <span class="badge badge-warning">
+                    Underweight
+                </span>
+
+            {% elif bmi < 25 %}
+
+                <span class="badge badge-success">
+                    Healthy
+                </span>
+
+            {% elif bmi < 30 %}
+
+                <span class="badge badge-warning">
+                    Overweight
+                </span>
+
+            {% else %}
+
+                <span class="badge badge-danger">
+                    Obese
+                </span>
+
+            {% endif %}
+
+        </div>
+
+        <br><br>
+
+        <div class="card">
+
+            <h2>BMI Categories</h2>
+
+            <table>
+
+                <tr>
+                    <th>BMI Range</th>
+                    <th>Status</th>
+                </tr>
+
+                <tr>
+                    <td>Below 18.5</td>
+                    <td>Underweight</td>
+                </tr>
+
+                <tr>
+                    <td>18.5 - 24.9</td>
+                    <td>Healthy</td>
+                </tr>
+
+                <tr>
+                    <td>25 - 29.9</td>
+                    <td>Overweight</td>
+                </tr>
+
+                <tr>
+                    <td>30+</td>
+                    <td>Obese</td>
+                </tr>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

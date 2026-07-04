@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Medicine Reminder</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="main-container">
+
+    <!-- Sidebar -->
+
+    <div class="sidebar">
+
+        <h2>🏥 HealthMate</h2>
+
+        <a href="/dashboard"><i class="fas fa-home"></i> Dashboard</a>
+        <a href="/profile"><i class="fas fa-user"></i> My Profile</a>
+        <a href="/add_health"><i class="fas fa-heart"></i> Add Health Record</a>
+        <a href="/history"><i class="fas fa-history"></i> Health History</a>
+        <a href="/bmi"><i class="fas fa-calculator"></i> BMI Calculator</a>
+        <a href="/upload_skin"><i class="fas fa-stethoscope"></i> Skin Detection</a>
+        <a href="/medicine"><i class="fas fa-pills"></i> Medicine Reminder</a>
+        <a href="/appointment"><i class="fas fa-calendar-check"></i> Appointment Booking</a>
+        <a href="/health_tips"><i class="fas fa-robot"></i> AI Health Tips</a>
+        <a href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+
+    </div>
+
+    <!-- Content -->
+
+    <div class="content">
+
+        <h1><i class="fas fa-pills"></i> Medicine Reminder</h1>
+
+        <p style="color:#666;">
+            Add medicines and manage your daily reminders.
+        </p>
+
+        <br>
+
+        <div class="container">
+
+            <form method="POST">
+
+                <label>
+                    <i class="fas fa-capsules"></i>
+                    Medicine Name
+                </label>
+
+                <input
+                    type="text"
+                    name="medicine_name"
+                    placeholder="Enter medicine name"
+                    required>
+
+                <label>
+                    <i class="fas fa-prescription-bottle"></i>
+                    Dosage
+                </label>
+
+                <input
+                    type="text"
+                    name="dosage"
+                    placeholder="Example: 1 Tablet After Food"
+                    required>
+
+                <label>
+                    <i class="fas fa-clock"></i>
+                    Reminder Time
+                </label>
+
+                <input
+                    type="time"
+                    name="reminder_time"
+                    required>
+
+                <br>
+
+                <button type="submit">
+
+                    <i class="fas fa-plus-circle"></i>
+
+                    Add Medicine
+
+                </button>
+
+            </form>
+
+        </div>
+
+        <br><br>
+
+        <table>
+
+            <thead>
+
+            <tr>
+
+                <th>Medicine</th>
+
+                <th>Dosage</th>
+
+                <th>Time</th>
+
+                <th>Status</th>
+
+                <th>Action</th>
+
+            </tr>
+
+            </thead>
+
+            <tbody>
+
+            {% for medicine in medicines %}
+
+            <tr>
+
+                <td>
+
+                    💊 {{ medicine[2] }}
+
+                </td>
+
+                <td>
+
+                    {{ medicine[3] }}
+
+                </td>
+
+                <td>
+
+                    ⏰ {{ medicine[4] }}
+
+                </td>
+
+                <td>
+
+                    {% if medicine[5] == "Taken" %}
+
+                        <span class="badge badge-success">
+
+                            Taken
+
+                        </span>
+
+                    {% else %}
+
+                        <span class="badge badge-warning">
+
+                            Pending
+
+                        </span>
+
+                    {% endif %}
+
+                </td>
+
+                <td>
+
+                    <a href="/taken/{{ medicine[0] }}">
+
+                        <button>
+
+                            ✅ Taken
+
+                        </button>
+
+                    </a>
+
+                    <a href="/delete_medicine/{{ medicine[0] }}"
+                    onclick="return confirm('Delete this medicine?')">
+
+                        <button style="background:#e53935;">
+
+                            🗑 Delete
+
+                        </button>
+
+                    </a>
+
+                </td>
+
+            </tr>
+
+            {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

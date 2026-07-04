@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Health Record</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Edit Health Record</h2>
+
+<form method="POST">
+
+<input type="number"
+name="heart_rate"
+value="{{ record[2] }}"
+required>
+
+<br><br>
+
+<input type="text"
+name="blood_pressure"
+value="{{ record[3] }}"
+required>
+
+<br><br>
+
+<input type="number"
+name="blood_sugar"
+value="{{ record[4] }}"
+required>
+
+<br><br>
+
+<input type="number"
+step="0.1"
+name="weight"
+value="{{ record[5] }}"
+required>
+
+<br><br>
+
+<input type="number"
+step="0.1"
+name="height"
+value="{{ record[6] }}"
+required>
+
+<br><br>
+
+<button type="submit">
+Update Record
+</button>
+
+</form>
+
+<br>
+
+<a href="/history">
+<button>Cancel</button>
+</a>
+
+</div>
+
+</body>
+</html>

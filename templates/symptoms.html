@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Symptoms Checker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+<h2>Enter Symptoms</h2>
+
+<form method="POST">
+
+<select name="fever">
+    <option value="no">Fever - No</option>
+    <option value="yes">Fever - Yes</option>
+</select>
+
+<br><br>
+
+<select name="itching">
+    <option value="no">Itching - No</option>
+    <option value="yes">Itching - Yes</option>
+</select>
+
+<br><br>
+
+<select name="redness">
+    <option value="no">Redness - No</option>
+    <option value="yes">Redness - Yes</option>
+</select>
+
+<br><br>
+
+<select name="swelling">
+    <option value="no">Swelling - No</option>
+    <option value="yes">Swelling - Yes</option>
+</select>
+
+<br><br>
+
+<select name="pain">
+    <option value="no">Pain - No</option>
+    <option value="yes">Pain - Yes</option>
+</select>
+
+<br><br>
+
+<button type="submit">Check Disease</button>
+
+</form>
+
+</div>
+
+</body>
+</html>

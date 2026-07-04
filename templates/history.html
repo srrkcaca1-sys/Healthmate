@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Health History</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="main-container">
+
+    <!-- Sidebar -->
+
+    <div class="sidebar">
+
+        <h2>🏥 HealthMate</h2>
+
+        <a href="/dashboard"><i class="fas fa-home"></i> Dashboard</a>
+        <a href="/profile"><i class="fas fa-user"></i> My Profile</a>
+        <a href="/add_health"><i class="fas fa-heart"></i> Add Health Record</a>
+        <a href="/history"><i class="fas fa-history"></i> Health History</a>
+        <a href="/bmi"><i class="fas fa-calculator"></i> BMI Calculator</a>
+        <a href="/upload_skin"><i class="fas fa-stethoscope"></i> Skin Detection</a>
+        <a href="/medicine"><i class="fas fa-pills"></i> Medicine Reminder</a>
+        <a href="/appointment"><i class="fas fa-calendar-check"></i> Appointment Booking</a>
+        <a href="/health_tips"><i class="fas fa-robot"></i> AI Health Tips</a>
+        <a href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+
+    </div>
+
+    <!-- Content -->
+
+    <div class="content">
+
+        <h1>
+            <i class="fas fa-notes-medical"></i>
+            Health History
+        </h1>
+
+        <p style="color:#666;">
+            View, edit and manage all your health records.
+        </p>
+
+        <br>
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>S.No</th>
+                    <th>Heart Rate</th>
+                    <th>Blood Pressure</th>
+                    <th>Blood Sugar</th>
+                    <th>Weight</th>
+                    <th>Height</th>
+                    <th>Action</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+            {% for row in records %}
+
+                <tr>
+
+                    <!-- Serial Number -->
+                    <td>{{ loop.index }}</td>
+
+                    <!-- Health Details -->
+                    <td>❤️ {{ row[2] }} bpm</td>
+
+                    <td>🩸 {{ row[3] }}</td>
+
+                    <td>🍬 {{ row[4] }}</td>
+
+                    <td>⚖️ {{ row[5] }} kg</td>
+
+                    <td>📏 {{ row[6] }} cm</td>
+
+                    <!-- Action Buttons -->
+                    <td>
+
+                        <a href="/edit_health/{{ row[0] }}">
+                            <button>
+                                <i class="fas fa-edit"></i>
+                                Edit
+                            </button>
+                        </a>
+
+                        <a href="/delete_health/{{ row[0] }}"
+                           onclick="return confirm('Delete this record?')">
+
+                            <button style="background:#e53935;">
+                                <i class="fas fa-trash"></i>
+                                Delete
+                            </button>
+
+                        </a>
+
+                    </td>
+
+                </tr>
+
+            {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

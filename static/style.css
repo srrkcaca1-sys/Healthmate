@@ -1,0 +1,1183 @@
+/* ==========================
+   GOOGLE FONT
+========================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* ==========================
+   RESET
+========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+/* ==========================
+   BODY
+========================== */
+
+body{
+    background:#f4f8fb;
+    color:#2c3e50;
+}
+
+/* ==========================
+   MAIN LAYOUT
+========================== */
+
+.main-container{
+    display:flex;
+    min-height:100vh;
+}
+
+/* ==========================
+   SIDEBAR
+========================== */
+
+.sidebar{
+
+    width:260px;
+
+    background:linear-gradient(180deg,#1565c0,#0d47a1);
+
+    color:white;
+
+    position:fixed;
+
+    left:0;
+
+    top:0;
+
+    height:100vh;
+
+    overflow-y:auto;
+
+    padding:30px 20px;
+
+    box-shadow:5px 0 20px rgba(0,0,0,.15);
+
+}
+
+.sidebar h2{
+
+    text-align:center;
+
+    margin-bottom:40px;
+
+    font-size:28px;
+
+}
+
+.sidebar a{
+
+    display:block;
+
+    color:white;
+
+    text-decoration:none;
+
+    padding:15px;
+
+    margin-bottom:10px;
+
+    border-radius:10px;
+
+    transition:.3s;
+
+    font-size:17px;
+
+}
+
+.sidebar a i{
+
+    width:25px;
+
+}
+
+.sidebar a:hover{
+
+    background:rgba(255,255,255,.18);
+
+    transform:translateX(6px);
+
+}
+
+/* ==========================
+   CONTENT
+========================== */
+
+.content{
+
+    margin-left:260px;
+
+    width:calc(100% - 260px);
+
+    padding:40px;
+
+}
+
+/* ==========================
+   HEADINGS
+========================== */
+
+.content h1{
+
+    font-size:34px;
+
+    margin-bottom:10px;
+
+    color:#1565c0;
+
+}
+
+.content h2{
+
+    color:#34495e;
+
+    margin-bottom:20px;
+
+}
+
+/* ==========================
+   DASHBOARD GRID
+========================== */
+
+.dashboard{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+    gap:25px;
+
+    margin-top:25px;
+
+}
+
+/* ==========================
+   CARD
+========================== */
+
+.card{
+
+    background:white;
+
+    border-radius:18px;
+
+    padding:25px;
+
+    text-align:center;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+
+    transition:.35s;
+
+}
+
+.card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 15px 35px rgba(0,0,0,.15);
+
+}
+
+.card h3{
+
+    color:#666;
+
+    margin-bottom:15px;
+
+    font-size:18px;
+
+}
+
+.card h1{
+
+    color:#1565c0;
+
+    font-size:34px;
+
+}
+
+/* ==========================
+   NOTIFICATIONS
+========================== */
+
+.notification{
+
+    background:#fff8e1;
+
+    border-left:6px solid orange;
+
+    border-radius:10px;
+
+    padding:15px;
+
+    margin:15px 0;
+
+    font-size:16px;
+
+    box-shadow:0 3px 12px rgba(0,0,0,.08);
+
+}
+
+/* ==========================
+   SECTION TITLE
+========================== */
+
+.section-title{
+
+    margin:35px 0 20px;
+
+    color:#1565c0;
+
+    font-size:26px;
+
+    font-weight:600;
+
+}
+
+/* ==========================
+   HORIZONTAL LINE
+========================== */
+
+hr{
+
+    border:none;
+
+    height:2px;
+
+    background:#e0e0e0;
+
+    margin:30px 0;
+
+}
+
+/* ==========================
+   CHART CONTAINER
+========================== */
+
+.chart-box{
+
+    background:white;
+
+    border-radius:18px;
+
+    padding:25px;
+
+    margin-top:25px;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+
+}
+
+/* ==========================
+   CANVAS
+========================== */
+
+canvas{
+
+    width:100% !important;
+
+    max-height:350px;
+
+}
+
+/* ==========================
+   SCROLLBAR
+========================== */
+
+::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#1565c0;
+
+    border-radius:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#eceff1;
+
+}
+/* ===========================================
+   BUTTONS
+=========================================== */
+
+button{
+
+    background:linear-gradient(135deg,#1565c0,#1976d2);
+
+    color:white;
+
+    border:none;
+
+    padding:12px 24px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    font-weight:500;
+
+    transition:.3s;
+
+    margin:5px;
+
+}
+
+button:hover{
+
+    background:linear-gradient(135deg,#0d47a1,#1565c0);
+
+    transform:translateY(-3px);
+
+    box-shadow:0 8px 20px rgba(21,101,192,.3);
+
+}
+
+/* ===========================================
+   FORM CONTAINER
+=========================================== */
+
+.container{
+
+    background:white;
+
+    padding:35px;
+
+    border-radius:18px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+}
+
+/* ===========================================
+   INPUTS
+=========================================== */
+
+input,
+select,
+textarea{
+
+    width:100%;
+
+    padding:14px;
+
+    margin-top:8px;
+
+    margin-bottom:18px;
+
+    border:1px solid #dfe6e9;
+
+    border-radius:10px;
+
+    outline:none;
+
+    font-size:15px;
+
+    transition:.3s;
+
+    background:#fafafa;
+
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+
+    border:1px solid #1565c0;
+
+    box-shadow:0 0 10px rgba(21,101,192,.25);
+
+    background:white;
+
+}
+
+/* ===========================================
+   TEXTAREA
+=========================================== */
+
+textarea{
+
+    resize:vertical;
+
+    min-height:120px;
+
+}
+
+/* ===========================================
+   LABELS
+=========================================== */
+
+label{
+
+    font-weight:600;
+
+    color:#555;
+
+}
+
+/* ===========================================
+   TABLE
+=========================================== */
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    background:white;
+
+    border-radius:15px;
+
+    overflow:hidden;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+}
+
+table th{
+
+    background:#1565c0;
+
+    color:white;
+
+    padding:16px;
+
+    font-size:16px;
+
+}
+
+table td{
+
+    padding:14px;
+
+    text-align:center;
+
+    border-bottom:1px solid #eeeeee;
+
+}
+
+table tr:hover{
+
+    background:#f5f9ff;
+
+}
+
+/* ===========================================
+   LINKS
+=========================================== */
+
+a{
+
+    text-decoration:none;
+
+}
+
+table a{
+
+    color:#1565c0;
+
+    font-weight:600;
+
+}
+
+table a:hover{
+
+    color:#0d47a1;
+
+}
+
+/* ===========================================
+   PROFILE CARD
+=========================================== */
+
+.profile-card{
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:30px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+    text-align:center;
+
+}
+
+.profile-card img{
+
+    width:120px;
+
+    height:120px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    margin-bottom:20px;
+
+}
+
+/* ===========================================
+   HEALTH TIPS
+=========================================== */
+
+.tip-card{
+
+    background:#f8fbff;
+
+    border-left:6px solid #1565c0;
+
+    border-radius:12px;
+
+    padding:18px;
+
+    margin-bottom:15px;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.05);
+
+}
+
+/* ===========================================
+   MEDICINE STATUS
+=========================================== */
+
+.pending{
+
+    color:#e67e22;
+
+    font-weight:bold;
+
+}
+
+.taken{
+
+    color:#27ae60;
+
+    font-weight:bold;
+
+}
+
+/* ===========================================
+   APPOINTMENT STATUS
+=========================================== */
+
+.booked{
+
+    color:#1565c0;
+
+    font-weight:bold;
+
+}
+
+.cancelled{
+
+    color:#e53935;
+
+    font-weight:bold;
+
+}
+
+/* ===========================================
+   CHART BOX
+=========================================== */
+
+.chart-box{
+
+    background:white;
+
+    padding:25px;
+
+    border-radius:18px;
+
+    margin-top:25px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+}
+
+/* ===========================================
+   LOGIN & REGISTER
+=========================================== */
+
+.auth-container{
+
+    width:450px;
+
+    margin:60px auto;
+
+    background:white;
+
+    padding:40px;
+
+    border-radius:20px;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.1);
+
+}
+
+.auth-container h2{
+
+    text-align:center;
+
+    color:#1565c0;
+
+    margin-bottom:25px;
+
+}
+
+/* ===========================================
+   PAGE TITLES
+=========================================== */
+
+.page-title{
+
+    font-size:30px;
+
+    color:#1565c0;
+
+    margin-bottom:25px;
+
+    font-weight:600;
+
+}
+
+/* ===========================================
+   SMALL CARDS
+=========================================== */
+
+.small-card{
+
+    background:white;
+
+    padding:20px;
+
+    border-radius:15px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+    text-align:center;
+
+}
+
+/* ===========================================
+   BADGES
+=========================================== */
+
+.badge{
+
+    display:inline-block;
+
+    padding:6px 14px;
+
+    border-radius:20px;
+
+    color:white;
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+
+.badge-success{
+
+    background:#2ecc71;
+
+}
+
+.badge-warning{
+
+    background:#f39c12;
+
+}
+
+.badge-danger{
+
+    background:#e74c3c;
+
+}
+/* ===========================================
+   ANIMATIONS
+=========================================== */
+
+@keyframes fadeIn{
+
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+.card,
+.chart-box,
+.container,
+.profile-card,
+.tip-card{
+
+    animation:fadeIn .6s ease;
+
+}
+
+/* ===========================================
+   HOVER EFFECTS
+=========================================== */
+
+table tr{
+
+    transition:.3s;
+
+}
+
+.sidebar a{
+
+    transition:.3s;
+
+}
+
+.card{
+
+    transition:.35s;
+
+}
+
+button{
+
+    transition:.35s;
+
+}
+
+/* ===========================================
+   DASHBOARD CARDS
+=========================================== */
+
+.card:nth-child(1){
+
+    border-top:5px solid #1565c0;
+
+}
+
+.card:nth-child(2){
+
+    border-top:5px solid #2ecc71;
+
+}
+
+.card:nth-child(3){
+
+    border-top:5px solid #e53935;
+
+}
+
+.card:nth-child(4){
+
+    border-top:5px solid #8e44ad;
+
+}
+
+.card:nth-child(5){
+
+    border-top:5px solid #f39c12;
+
+}
+
+.card:nth-child(6){
+
+    border-top:5px solid #00acc1;
+
+}
+
+/* ===========================================
+   SCROLL TO TOP
+=========================================== */
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+/* ===========================================
+   CHARTS
+=========================================== */
+
+canvas{
+
+    background:white;
+
+    border-radius:15px;
+
+    padding:15px;
+
+}
+
+/* ===========================================
+   ALERT BOXES
+=========================================== */
+
+.success{
+
+    background:#d4edda;
+
+    color:#155724;
+
+    padding:15px;
+
+    border-radius:10px;
+
+    margin-bottom:15px;
+
+}
+
+.warning{
+
+    background:#fff3cd;
+
+    color:#856404;
+
+    padding:15px;
+
+    border-radius:10px;
+
+    margin-bottom:15px;
+
+}
+
+.error{
+
+    background:#f8d7da;
+
+    color:#721c24;
+
+    padding:15px;
+
+    border-radius:10px;
+
+    margin-bottom:15px;
+
+}
+
+/* ===========================================
+   ICON SPACING
+=========================================== */
+
+i{
+
+    margin-right:8px;
+
+}
+
+/* ===========================================
+   DARK MODE READY
+=========================================== */
+
+.dark-mode{
+
+    background:#121212;
+
+    color:white;
+
+}
+
+.dark-mode .content{
+
+    background:#1b1b1b;
+
+}
+
+.dark-mode .card{
+
+    background:#222;
+
+    color:white;
+
+}
+
+.dark-mode table{
+
+    background:#222;
+
+    color:white;
+
+}
+
+.dark-mode table td{
+
+    border-color:#333;
+
+}
+
+.dark-mode input,
+.dark-mode textarea,
+.dark-mode select{
+
+    background:#2d2d2d;
+
+    color:white;
+
+    border:1px solid #555;
+
+}
+
+.dark-mode .container{
+
+    background:#222;
+
+}
+
+/* ===========================================
+   RESPONSIVE
+=========================================== */
+
+@media(max-width:1200px){
+
+.dashboard{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+@media(max-width:992px){
+
+.sidebar{
+
+width:220px;
+
+}
+
+.content{
+
+margin-left:220px;
+
+width:calc(100% - 220px);
+
+padding:25px;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.main-container{
+
+flex-direction:column;
+
+}
+
+.sidebar{
+
+position:relative;
+
+width:100%;
+
+height:auto;
+
+}
+
+.content{
+
+margin-left:0;
+
+width:100%;
+
+padding:20px;
+
+}
+
+.dashboard{
+
+grid-template-columns:1fr;
+
+}
+
+table{
+
+display:block;
+
+overflow-x:auto;
+
+}
+
+.auth-container{
+
+width:95%;
+
+}
+
+}
+
+@media(max-width:480px){
+
+.content h1{
+
+font-size:28px;
+
+}
+
+.content h2{
+
+font-size:22px;
+
+}
+
+button{
+
+width:100%;
+
+margin-bottom:10px;
+
+}
+
+.card h1{
+
+font-size:28px;
+
+}
+
+}
+
+/* ===========================================
+   LOADING EFFECT
+=========================================== */
+
+.loading{
+
+width:45px;
+
+height:45px;
+
+border:5px solid #ddd;
+
+border-top:5px solid #1565c0;
+
+border-radius:50%;
+
+animation:spin 1s linear infinite;
+
+margin:auto;
+
+}
+
+@keyframes spin{
+
+100%{
+
+transform:rotate(360deg);
+
+}
+
+}
+
+/* ===========================================
+   FOOTER
+=========================================== */
+
+.footer{
+
+text-align:center;
+
+padding:25px;
+
+color:#777;
+
+font-size:14px;
+
+margin-top:50px;
+
+}
+/* ===========================
+   HOME PAGE
+=========================== */
+
+.hero{
+
+    height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:linear-gradient(135deg,#1565c0,#42a5f5);
+
+}
+
+.hero-content{
+
+    width:700px;
+
+    background:white;
+
+    padding:60px;
+
+    border-radius:20px;
+
+    text-align:center;
+
+    box-shadow:0 20px 50px rgba(0,0,0,.2);
+
+}
+
+.hero h1{
+
+    font-size:55px;
+
+    color:#1565c0;
+
+    margin-bottom:20px;
+
+}
+
+.hero h2{
+
+    color:#333;
+
+    margin-bottom:20px;
+
+}
+
+.hero p{
+
+    font-size:18px;
+
+    color:#666;
+
+    line-height:1.8;
+
+}
+
+.hero button{
+
+    width:180px;
+
+    margin:15px;
+
+    font-size:18px;
+
+}
